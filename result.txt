@@ -1,0 +1,14 @@
+LoRA (2.py, train=2000, eval=1000, epochs=3)
+- eval_accuracy: 0.8623853211009175
+- eval_loss: 0.3425425887107849
+- adapter: ./outputs/20260201_220217/lora_adapter
+- inference:
+  - I love this movie. -> positive
+  - This is the worst film ever. -> negative
+
+Full fine-tune baseline (1.py, train=2000, eval=1000, epochs=1)
+- eval_accuracy: 0.8348623853211009
+- eval_loss: 0.38055843114852905
+
+
+trainable params: 296,450 || all params: 109,780,228 || trainable%: 0.2700395193203643
