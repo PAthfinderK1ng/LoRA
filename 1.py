@@ -109,6 +109,10 @@ def main() -> None:
 		model = get_peft_model(model, lora_config)
 		sanitize_module_tree(model)
 		model.print_trainable_parameters()
+		
+
+
+
 
 	training_args = TrainingArguments(
     	output_dir=output_dir,
@@ -116,10 +120,10 @@ def main() -> None:
     	per_device_train_batch_size=16,
     	per_device_eval_batch_size=16,
     	num_train_epochs=3,
-    	eval_strategy="epoch",
+    	evaluation_strategy="epoch",
     	save_strategy="no",
-    	log_strategy="epoch",
-    	log_first_step=False,
+    	logging_strategy="epoch",
+    	logging_first_step=False,
     	load_best_model_at_end=False,
     	metric_for_best_model="accuracy",
     	label_names=["labels"],
@@ -127,6 +131,7 @@ def main() -> None:
     	max_grad_norm=0.0,
     	fp16=torch.cuda.is_available(),
 	)
+
 	print(
 		f"Training config: lr={training_args.learning_rate}, "
 		f"epochs={training_args.num_train_epochs}, "
