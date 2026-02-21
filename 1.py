@@ -85,7 +85,7 @@ def main() -> None:
 
 	tokenized_dataset.set_transform(to_torch)
 
-	train_limit = min(2000, len(tokenized_dataset["train"]))
+	train_limit = min(10000000, len(tokenized_dataset["train"]))
 	eval_limit = min(1000, len(tokenized_dataset["validation"]))
 	train_dataset = tokenized_dataset["train"].select(range(train_limit))
 	eval_dataset = tokenized_dataset["validation"].select(range(eval_limit))
@@ -115,7 +115,7 @@ def main() -> None:
 		learning_rate=2e-4,
 		per_device_train_batch_size=16,
 		per_device_eval_batch_size=16,
-		num_train_epochs=1,
+		num_train_epochs=3,
 		evaluation_strategy="epoch",
 		save_strategy="no",
 		logging_strategy="epoch",
