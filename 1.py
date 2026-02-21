@@ -116,7 +116,7 @@ def main() -> None:
 
 	training_args = TrainingArguments(
     	output_dir=output_dir,
-    	learning_rate=2e-4,
+    	learning_rate=2e-5,
     	per_device_train_batch_size=16,
     	per_device_eval_batch_size=16,
     	num_train_epochs=3,
@@ -128,8 +128,8 @@ def main() -> None:
     	metric_for_best_model="accuracy",
     	label_names=["labels"],
     	remove_unused_columns=False,
-    	max_grad_norm=0.0,
-    	fp16=torch.cuda.is_available(),
+    	max_grad_norm=1.0,
+    	fp16=False,
 	)
 
 	print(
